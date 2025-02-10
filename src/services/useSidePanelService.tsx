@@ -2,6 +2,7 @@ import { CreateNodeAction } from '@/actions/AddUpdateNode'
 import { MyNode } from '@/components/ui/GraphContainerProvider'
 import { NodeType } from '@/types/nodeType'
 import {
+  // getNodeSchema,
   habitNodeSchema,
   NodeSchemaType,
   userNodeSchema,
@@ -129,6 +130,7 @@ const useSidePanelService = ({ selectedNode, setSelectedNode }: props) => {
   // const defaultNodeType = selectedNode?.type || 'user'
 
   const form = useForm<NodeSchemaType>({
+    // resolver: zodResolver(getNodeSchema(defaultNodeType)),
     resolver: zodResolver(userNodeSchema),
     defaultValues: {
       nodeType: 'user',
