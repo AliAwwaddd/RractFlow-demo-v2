@@ -5,6 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { habitOptions } from '@/types/habitType'
 import { Handle, Position, useNodeId, useReactFlow } from 'reactflow'
 import 'reactflow/dist/style.css'
 
@@ -36,9 +37,11 @@ const Habit = ({ data }: props) => {
           <SelectValue>{data.label || 'Select a habit'}</SelectValue>
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value='reading'>Reading</SelectItem>
-          <SelectItem value='exercise'>Exercise</SelectItem>
-          <SelectItem value='meditation'>Meditation</SelectItem>
+          {habitOptions.map((option) => (
+            <SelectItem key={option.value} value={option.value}>
+              {option.label}
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
       <Handle type='target' position={Position.Left} />

@@ -25,7 +25,7 @@ const SidePanel = ({ selectedNode, setSelectedNode }: Props) => {
       initial={{ x: -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className='absolute left-4 top-[100px] flex w-64 -translate-y-1/2 flex-col gap-4 rounded-lg border border-gray-300 bg-white p-6 shadow-lg'
+      className='absolute left-4 top-[100px] flex max-h-[600px] w-64 -translate-y-1/2 flex-col gap-4 rounded-lg border border-gray-300 bg-white p-6 shadow-lg'
     >
       <h3 className='text-lg font-semibold text-gray-800'>
         {selectedNode ? 'Edit Node' : 'Add Node'}

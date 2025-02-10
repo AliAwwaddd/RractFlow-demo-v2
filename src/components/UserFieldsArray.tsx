@@ -22,34 +22,38 @@ export default function UserFieldsArray({ control }: UserFieldsArrayProps) {
   })
 
   return (
-    <div className='flex flex-col gap-2'>
+    <div className='flex max-h-[250px] flex-col gap-2'>
       <FormLabel>User Fields</FormLabel>
-      {fields.map((field, index) => (
-        <FormField
-          key={field.id}
-          control={control}
-          name={`userFields.${index}.value`}
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input
-                  {...field}
-                  placeholder={`Field ${index + 1}`}
-                  className='bg-neutral-100'
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-      ))}
-      <Button
-        type='button'
-        className='w-full bg-gray-300 text-gray-700 hover:bg-gray-400'
-        onClick={() => append({ id: Math.random().toString(), value: '' })}
-      >
-        + Add Field
-      </Button>
+      <div className='flex flex-col gap-2 overflow-y-auto p-1'>
+        {fields.map((field, index) => (
+          <FormField
+            key={field.id}
+            control={control}
+            name={`userFields.${index}.value`}
+            render={({ field }) => (
+              <FormItem>
+                <FormControl>
+                  <Input
+                    {...field}
+                    placeholder={`Field ${index + 1}`}
+                    className='m-0 bg-neutral-100 p-0 pl-2'
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        ))}
+      </div>
+      {fields.length < 20 && (
+        <Button
+          type='button'
+          className='w-full bg-gray-300 text-gray-700 hover:bg-gray-400'
+          onClick={() => append({ id: Math.random().toString(), value: '' })}
+        >
+          + Add Field
+        </Button>
+      )}
     </div>
   )
 }
