@@ -7,7 +7,7 @@ export const userNodeSchema = z.object({
   label: z
     .string()
     .min(3, 'Username must be at least 3 characters')
-    .max(50, 'Username cannot exceed 50 characters'),
+    .max(50, 'label cannot exceed 50 characters'),
   userFields: z
     .array(
       z.object({
